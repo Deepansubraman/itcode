@@ -1,0 +1,30 @@
+server motor operation in arduino 
+ TO CHANGE THE DELAY TIME IT ROTATE AFTER EVERY THAT DELAY TIME
+
+
+
+
+#include <Servo.h> 
+Servo myServo;
+
+Servo myServo1;
+Servo myServo2;
+myServo.attach(9);
+myServo.write(90);
+#include <Servo.h>
+Servo servo;
+void setup() {
+  servo.attach(9); 
+  servo.write(0); 
+}
+void loop() {
+  for (int pos = 0; pos <= 180; pos += 1) {  
+    servo.write(pos); 
+    delay(10);    
+  }
+
+  for (int pos = 180; pos >= 0; pos -= 1) {  
+    servo.write(pos);                       
+    delay(10);                              
+  }
+}
