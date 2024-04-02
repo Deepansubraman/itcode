@@ -1,0 +1,18 @@
+int soundLevel = 0;
+int ledPin = 12;
+bool toggle = false;
+voidtoggleLEDState(){
+digitalWrite(ledPin, toggle);
+toggle = !toggle;
+}
+voidsetup() {
+pinMode(ledPin, OUTPUT);
+}
+voidloop(){
+soundLevel = analogRead(A0);
+if(soundLevel >= 650) {
+delay(100);
+toggleLEDState();
+}
+delay(1);
+}
