@@ -1,0 +1,29 @@
+//
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(A2,OUTPUT);
+  pinMode(A3,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int x=analogRead(A0);
+  Serial.println(x);
+  if(100<x && x<400)
+  {
+    analogWrite(A2,HIGH);
+    analogWrite(A3,LOW);
+}
+  else if(400<x && x<800)
+  {
+    analogWrite(A3,HIGH);
+    analogWrite(A2,LOW);
+  }
+  else
+  {
+    analogWrite(A3,LOW);
+    analogWrite(A2,LOW);
+  }
+}
