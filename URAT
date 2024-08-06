@@ -1,0 +1,30 @@
+void setup() {
+  // set push button pin as input
+  pinMode(8, INPUT_PULLUP); 
+  pinMode(13, OUTPUT);      
+  digitalWrite(13, LOW);    
+  Serial.begin(9600);       
+}
+
+void loop() {
+  if (Serial.available()) {
+    // read one byte from serial buffer and save to data_rcvd
+    char data_rcvd = Serial.read();
+     
+    if (data_rcvd == '1') {
+       digitalWrite(13, HIGH); 
+    }
+    if (data_rcvd == '0') {
+     digitalWrite(13, LOW);  // switch LED Off
+    }  
+}
+
+ if (digitalRead(8) == HIGH) {
+     // send the char '0' to serial if button is not      pressed.
+     Serial.write('0');
+  }    
+  else {
+     // send the char '1' to serial if button is pressed.
+    Serial.write('1');
+  }
+}
